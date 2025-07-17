@@ -124,11 +124,13 @@
                 <a href="#projects" class="nav-link text-slate-300 hover:text-white">Projects</a>
                 <a href="#contact" class="nav-link text-slate-300 hover:text-white">Contact</a>
             </div>
-            <a href="#contact" class="hidden md:block bg-violet-600 hover:bg-violet-700 text-white font-medium py-2 px-4 rounded-lg transition-transform duration-300 hover:scale-105">
-                Contact Me
-            </a>
+           
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
                 <i class="fas fa-bars text-2xl"></i>
+            </button>
+            <!-- Add this inside your <header> nav, after the Contact Me button -->
+            <button id="theme-toggle" class="ml-4 bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-transform duration-300 hover:scale-105">
+                <i id="theme-icon" class="fas fa-moon"></i>
             </button>
         </nav>
         <!-- Mobile Menu -->
@@ -137,7 +139,6 @@
             <a href="#skills" class="block py-2 text-slate-300 hover:text-white">Skills</a>
             <a href="#projects" class="block py-2 text-slate-300 hover:text-white">Projects</a>
             <a href="#contact" class="block py-2 text-slate-300 hover:text-white">Contact</a>
-            <a href="#contact" class="block mt-2 bg-violet-600 hover:bg-violet-700 text-white text-center font-medium py-2 px-4 rounded-lg">Contact Me</a>
         </div>
     </header>
 
@@ -152,14 +153,26 @@
                 <h2 id="tagline" class="text-2xl md:text-3xl font-medium text-violet-400 mb-8">
                     <!-- Tagline will be injected by JS -->
                 </h2>
-                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <div class="flex justify-center items-center gap-12 mb-8 py=8">
+                    <a href="https://github.com/arushi-866" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-violet-400 transition-colors text-3xl">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/arushi866" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-violet-400 transition-colors text-3xl">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+                <!-- <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
                     <a href="#projects" class="w-full sm:w-auto bg-violet-600 hover:bg-violet-700 text-white font-bold py-3 px-8 rounded-lg transition-transform duration-300 hover:scale-105 text-lg">
                         View Projects
                     </a>
                     <a href="#contact" class="w-full sm:w-auto bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-lg transition-transform duration-300 hover:scale-105 text-lg">
                         Contact Me
                     </a>
-                </div>
+                </div> -->
+                 <!-- <div class="flex justify-center space-x-6 space-y-8 text-3xl">
+                    <a href="https://github.com/arushi-866" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-violet-400 transition-colors"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/arushi866" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-violet-400 transition-colors"><i class="fab fa-linkedin"></i></a>
+                </div> -->
             </div>
         </section>
 
@@ -185,6 +198,9 @@
                      <p class="text-slate-300 text-lg leading-relaxed">
                         My work blends <span class="text-violet-400 font-medium">innovation, clean design, and scalability</span>, ensuring every project is both functional and future-ready.
                     </p>
+                     <p class="text-slate-300 text-lg leading-relaxed">
+                        I’m also deeply interested in Machine Learning and Data Science, leveraging predictive models and data-driven approaches to uncover insights and build intelligent systems.       
+                     </p>
                 </div>
             </div>
         </section>
@@ -239,13 +255,28 @@
         <section id="achievements" class="py-20 md:py-32">
             <h2 class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent scroll-reveal">Certifications</h2>
             <div class="max-w-3xl mx-auto space-y-6">
-                <!-- Forage Certificates -->
+
+                <!-- Achievements Section (added before Job Simulations) -->
                 <div class="bg-gray-800/70 rounded-xl p-4">
-                    <button class="w-full flex items-center justify-between text-lg font-semibold text-white focus:outline-none" onclick="toggleCert('forage-cert')">
-                        <span><span class="inline-block w-4 h-4 bg-green-400 rounded mr-2"></span>Forage Certificates</span>
-                        <span id="forage-cert-arrow" class="transition-transform">&#9660;</span>
-                    </button>
-                    <div id="forage-cert" class="mt-4 space-y-3 hidden">
+                    <h3 class="text-2xl font-bold text-yellow-400 mb-4 flex items-center gap-2">
+                        <i class="fas fa-trophy"></i> Achievements
+                    </h3>
+                    <div class="flex flex-col gap-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-award text-yellow-400"></i>
+                            <span class="font-medium text-white">1st Runner-Up - Hackathon 3.0, PCTE Ludhiana</span>
+                            <a href="https://drive.google.com/file/d/18dHFek2KU2f5lzdSolNd_1Gs78RurpKo/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
+                        </div>
+                        <!-- Add more achievements here if needed -->
+                    </div>
+                </div>
+
+                <!-- Forage Certificates (dropdown removed, always open) -->
+                <div class="bg-gray-800/70 rounded-xl p-4">
+                    <h3 class="text-2xl font-bold text-green-400 mb-4 flex items-center gap-2">
+                        <span class="inline-block w-4 h-4 bg-green-400 rounded mr-2"></span>Job Simulations
+                    </h3>
+                    <div id="forage-cert" class="mt-4 space-y-3">
                         <div class="flex flex-col gap-3">
                             <div class="flex items-center gap-3">
                                 <i class="fas fa-briefcase text-green-400"></i>
@@ -277,11 +308,10 @@
                 </div>
                 <!-- ML/Data Science -->
                 <div class="bg-gray-800/70 rounded-xl p-4">
-                    <button class="w-full flex items-center justify-between text-lg font-semibold text-white focus:outline-none" onclick="toggleCert('ml-cert')">
-                        <span><i class="fas fa-brain text-pink-400 mr-2"></i>Machine Learning / Data Science</span>
-                        <span id="ml-cert-arrow" class="transition-transform">&#9660;</span>
-                    </button>
-                    <div id="ml-cert" class="mt-4 space-y-3 hidden">
+                    <h3 class="text-2xl font-bold text-pink-400 mb-4 flex items-center gap-2">
+                        <i class="fas fa-brain"></i> Machine Learning / Data Science
+                    </h3>
+                    <div class="mt-4 space-y-3">
                         <div class="flex flex-col gap-3">
                             <div class="flex items-center gap-3">
                                 <i class="fas fa-database text-pink-400"></i>
@@ -293,7 +323,6 @@
                                 <span class="font-medium text-white">Coursera- Advanced Learning Algorithm</span>
                                 <a href="https://drive.google.com/file/d/12MMeLENzTaPdyz4dInfUqI389QsrsBpl/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
                             </div>
-                          
                             <div class="flex items-center gap-3">
                                 <i class="fas fa-brain text-pink-400"></i>
                                 <span class="font-medium text-white">Coursera Project-Linear Regression</span>
@@ -329,51 +358,34 @@
                                 <span class="font-medium text-white">Coursera Project-EDA</span>
                                 <a href="https://drive.google.com/file/d/1CgTmpqqDsY1UOuQz3Zbz_eIADFaJTLAd/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
                             </div>
-                              <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3">
                                 <i class="fas fa-brain text-pink-400"></i>
                                 <span class="font-medium text-white">Coursera Project-Data Visualization</span>
                                 <a href="https://drive.google.com/file/d/1EawDQCXvECLaQe5UY07zpg35xAfyJSEr/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
                             </div>
                             <div class="flex items-center gap-3">
-                                <i class="fas fa-database text-pink-400"></i>
-                                <span class="font-medium text-white">Coursera Project-Excel</span>
-                                <a href="https://drive.google.com/file/d/1kEDEdx6IgagwyD0p2VONSDGohH4B7Z6h/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
-                            </div>
-                            
-                            
-                           
-                            <div class="flex items-center gap-3">
                                 <i class="fas fa-brain text-pink-400"></i>
                                 <span class="font-medium text-white">OneroadMap- Data Analyst</span>
                                 <a href="https://drive.google.com/file/d/14Jzx0ndYWPPEvUhR5e-Pgc_9t0u0wwCE/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
                             </div>
-                            
-                            
-                    
                         </div>
                     </div>
                 </div>
                 <!-- Web Development -->
                 <div class="bg-gray-800/70 rounded-xl p-4">
-                    <button class="w-full flex items-center justify-between text-lg font-semibold text-white focus:outline-none" onclick="toggleCert('web-cert')">
-                        <span><i class="fas fa-globe text-blue-400 mr-2"></i>Web Development</span>
-                        <span id="web-cert-arrow" class="transition-transform">&#9660;</span>
-                    </button>
-                    <div id="web-cert" class="mt-4 space-y-3 hidden">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-4 flex items-center gap-2">
+                        <i class="fas fa-globe"></i> Web Development
+                    </h3>
+                    <div class="mt-4 space-y-3">
                         <div class="flex flex-col gap-3">
                             <div class="flex items-center gap-3">
-                                <i class="fas fa-code text-blue-400"></i>
-                                <span class="font-medium text-white">Frontend Development</span>
-                                <span class="text-slate-400 text-sm">One Roadmap</span>
-                            </div>
-                            <div class="flex items-center gap-3">
                                 <i class="fab fa-react text-blue-400"></i>
-                                <span class="font-medium text-white">Meta Front-End Developer</span>
+                                <span class="font-medium text-white">Infosys Springboard- Angular</span>
                                 <a href="https://drive.google.com/file/d/1hEcMNNurVbGTGX19ERf81mYdlxqUyhh-/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
                             </div>
                             <div class="flex items-center gap-3">
                                 <i class="fab fa-js-square text-blue-400"></i>
-                                <span class="font-medium text-white">Meta Back-End Developer</span>
+                                <span class="font-medium text-white">Frontend Developer</span>
                                 <a href="https://drive.google.com/file/d/1v1vLExF00_-sZeKFgMqzCS8u5mLXYwVl/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
                             </div>
                         </div>
@@ -381,27 +393,17 @@
                 </div>
                 <!-- Tools -->
                 <div class="bg-gray-800/70 rounded-xl p-4">
-                    <button class="w-full flex items-center justify-between text-lg font-semibold text-white focus:outline-none" onclick="toggleCert('tools-cert')">
-                        <span><i class="fas fa-chart-bar text-violet-400 mr-2"></i>Tools</span>
-                        <span id="tools-cert-arrow" class="transition-transform">&#9660;</span>
-                    </button>
-                    <div id="tools-cert" class="mt-4 space-y-3 hidden">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <ul class="list-disc list-inside text-white space-y-2">
-            <li>Git & GitHub</li>
-            <li>Postman</li>
-            <li>VS Code</li>
-            <li>Ubuntu</li>
-            <li>Jupyter</li>
-            <li>Excel</li>
-        </ul>
-        <ul class="list-disc list-inside text-white space-y-2">
-            <li>DSA</li>
-            <li>OOPS</li>
-            <li>OS</li>
-            <li>DBMS</li>
-        </ul>
-    </div>
+                    <h3 class="text-2xl font-bold text-violet-400 mb-4 flex items-center gap-2">
+                        <i class="fas fa-chart-bar"></i> Tools
+                    </h3>
+                    <div class="mt-4 space-y-3">
+                        <div class="flex flex-col gap-3">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-database text-pink-400"></i>
+                                <span class="font-medium text-white">Coursera Project-Excel</span>
+                                <a href="https://drive.google.com/file/d/1kEDEdx6IgagwyD0p2VONSDGohH4B7Z6h/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -417,10 +419,7 @@
                 <a href="mailto:arushijain866@gmail.com" class="inline-block bg-violet-600 text-white font-bold text-xl py-4 px-8 rounded-lg transition-transform duration-300 hover:scale-105 hover:bg-violet-700 mb-12">
                     arushijain866@gmail.com
                 </a>
-                <div class="flex justify-center space-x-6 text-3xl">
-                    <a href="https://github.com/arushi-866" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-violet-400 transition-colors"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/arushi866" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-violet-400 transition-colors"><i class="fab fa-linkedin"></i></a>
-                </div>
+               
             </div>
         </section>
 
@@ -433,60 +432,108 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            
-            // --- 3D BACKGROUND ---
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({
-                canvas: document.querySelector('#bg-canvas'),
-                alpha: true
-            });
+    // --- 3D BACKGROUND ---
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({
+        canvas: document.querySelector('#bg-canvas'),
+        alpha: true
+    });
 
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-            
-            const pointsGeometry = new THREE.BufferGeometry;
-            const count = 5000;
-            const positions = new Float32Array(count * 3);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-            for (let i = 0; i < count * 3; i++) {
-                positions[i] = (Math.random() - 0.5) * 10;
+    // Store particles and material for theme switching
+    let pointsMaterial;
+    let particles;
+
+    function createParticles(isDark) {
+        const pointsGeometry = new THREE.BufferGeometry;
+        const count = 5000;
+        const positions = new Float32Array(count * 3);
+
+        for (let i = 0; i < count * 3; i++) {
+            positions[i] = (Math.random() - 0.5) * 10;
+        }
+        pointsGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+        // Change color and opacity based on theme
+        pointsMaterial = new THREE.PointsMaterial({
+            size: 0.02,
+            color: isDark ? 0x8B5CF6 : 0x38BDF8, // violet for dark, sky blue for light
+            sizeAttenuation: true,
+            transparent: true,
+            opacity: isDark ? 0.5 : 0.35 // lighter in light mode
+        });
+
+        particles = new THREE.Points(pointsGeometry, pointsMaterial);
+        scene.add(particles);
+    }
+
+    createParticles(true); // default dark
+
+    camera.position.z = 5;
+    const clock = new THREE.Clock();
+
+    const animate = () => {
+        const elapsedTime = clock.getElapsedTime();
+        if (particles) {
+            particles.rotation.y = elapsedTime * 0.1;
+            particles.rotation.x = elapsedTime * 0.05;
+        }
+        renderer.render(scene, camera);
+        window.requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    });
+
+    // --- THEME TOGGLE LOGIC ---
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const body = document.body;
+    body.classList.add('dark-theme');
+    let isDark = true;
+
+    function setTheme(dark) {
+        if (dark) {
+            body.classList.add('dark-theme');
+            body.classList.remove('light-theme');
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+            // Change particles color for dark mode
+            if (particles) {
+                scene.remove(particles);
             }
-            pointsGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            createParticles(true);
+        } else {
+            body.classList.add('light-theme');
+            body.classList.remove('dark-theme');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+            // Change particles color for light mode
+            if (particles) {
+                scene.remove(particles);
+            }
+            createParticles(false);
+        }
+    }
 
-            const pointsMaterial = new THREE.PointsMaterial({
-                size: 0.02,
-                color: 0x8B5CF6, // original violet
-                sizeAttenuation: true,
-                transparent: true,
-                opacity: 0.5 // more transparent than before
-            });
+    themeToggle.addEventListener('click', () => {
+        isDark = !isDark;
+        setTheme(isDark);
+    });
 
-            const particles = new THREE.Points(pointsGeometry, pointsMaterial);
-            scene.add(particles);
-            camera.position.z = 5;
+    setTheme(isDark);
 
-            const clock = new THREE.Clock();
-
-            const animate = () => {
-                const elapsedTime = clock.getElapsedTime();
-                particles.rotation.y = elapsedTime * 0.1;
-                particles.rotation.x = elapsedTime * 0.05;
-                renderer.render(scene, camera);
-                window.requestAnimationFrame(animate);
-            };
-
-            animate();
-
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-            });
-
-            // --- DATA ---
-            const projects = [
+    // --- DATA ---
+    const projects = [
                 {
                     title: 'BrainVerse',
                     icon: 'fas fa-brain',
@@ -529,8 +576,25 @@
                     github: 'https://github.com/arushi-866/unscramblitz',
                     stack: ['TypeScript', 'HTML', 'CSS']
                 },
+                {
+                title: 'IPL Analysis 2008-2025',
+                icon: 'fas fa-chart-line',  // Suggesting an icon related to analytics
+                description: '"Interactive Power BI dashboard analyzing IPL seasons (2008–2025) with advanced DAX, dynamic visuals, and predictive insights.',
+                github: 'https://github.com/arushi-866/IPL-analysis-08-25',
+                stack: ['Power BI','DAX']
+            },
+
+            {
+    title: 'Retail Data EDA',
+    icon: 'fas fa-store',  // Icon for retail/business analysis
+    description: 'Exploratory Data Analysis on an online retail dataset to uncover sales trends, customer behavior, and actionable business insights.',
+    github:'https://github.com/arushi-866/retail-data-EDA',
+    stack: ['Python', 'Pandas', 'Matplotlib', 'Seaborn', 'Jupyter Notebook']
+},
+
+
                  {
-                    title: 'AskWally (WIP)',
+                    title: 'AskWally (Work in Progress)',
                     icon: 'fas fa-robot',
                     description: 'AI assistant using local LLMs (Gemma, LLaMA) via Ollama for a smart AI search experience for Walmart Sparkathon 2025.',
                     github: 'https://github.com/arushi-866/AskWally',
@@ -612,7 +676,7 @@
             // --- ANIMATIONS & INTERACTIONS ---
 
             // Tagline animation
-            const taglineText = "AI Innovator | Full-Stack Creator | Data Enthusiast";
+            const taglineText = "AI Innovator | Full-Stack Developer | Data Enthusiast";
             const taglineEl = document.getElementById('tagline');
             taglineEl.innerHTML = ''; // Clear existing
             taglineText.split('').forEach((char, index) => {
@@ -699,5 +763,100 @@ function toggleCert(id) {
     }
 }
 </script>
+<!-- Add this script before the closing </body> tag, after your other scripts -->
+<script>
+    // Theme toggle logic
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const body = document.body;
+    // Default to dark theme
+    body.classList.add('dark-theme');
+    let isDark = true;
+
+    function setTheme(dark) {
+        if (dark) {
+            body.classList.add('dark-theme');
+            body.classList.remove('light-theme');
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        } else {
+            body.classList.add('light-theme');
+            body.classList.remove('dark-theme');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+    }
+
+    themeToggle.addEventListener('click', () => {
+        isDark = !isDark;
+        setTheme(isDark);
+    });
+
+    setTheme(isDark);
+</script>
+<!-- Add these theme styles to your <style> section -->
+<style>
+    body.dark-theme {
+        background-color: #0a0a0a;
+        color: #e2e8f0;
+    }
+    body.light-theme {
+        background-color: #f8fafc;
+        color: #22223b;
+    }
+    body.light-theme .glass-effect {
+        background: rgba(255,255,255,0.7);
+        border: 1px solid #e2e8f0;
+    }
+    body.light-theme .bg-gray-800,
+    body.light-theme .bg-gray-800\/70,
+    body.light-theme .bg-gray-700 {
+        background-color: #e2e8f0 !important;
+    }
+    body.light-theme .text-white {
+        color: #22223b !important;
+    }
+    body.light-theme .text-slate-300 {
+        color: #22223b !important;
+    }
+    body.light-theme .text-violet-400 {
+        color: #8B5CF6 !important;
+    }
+    body.light-theme .border-gray-800 {
+        border-color: #e2e8f0 !important;
+    }
+    body.light-theme .border-gray-700\/50 {
+        border-color: #cbd5e1 !important;
+    }
+    body.light-theme .bg-violet-600 {
+        background-color: #8B5CF6 !important;
+        color: #fff !important;
+    }
+    body.light-theme .bg-violet-700 {
+        background-color: #7C3AED !important;
+        color: #fff !important;
+    }
+    body.light-theme .bg-gray-700 {
+        background-color: #cbd5e1 !important;
+    }
+    body.light-theme .project-card {
+        background-color: #f3f4f6 !important;
+        border-color: #cbd5e1 !important;
+    }
+    body.light-theme .skill-item {
+        background-color: #e2e8f0 !important;
+        color: #22223b !important;
+    }
+    body.light-theme .nav-link {
+        color: #22223b !important;
+    }
+    body.light-theme .nav-link:hover {
+        color: #8B5CF6 !important;
+    }
+    body.light-theme #custom-cursor {
+        border-color: #8B5CF6;
+        box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+    }
+</style>
 </body>
 </html>
