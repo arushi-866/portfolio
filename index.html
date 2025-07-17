@@ -146,35 +146,32 @@
 
         <!-- Home Section -->
         <section id="home" class="relative min-h-screen flex flex-col justify-center items-center text-center">
-            <div class="max-w-4xl z-10">
-                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4">
-                    Arushi
-                </h1>
-                <h2 id="tagline" class="text-2xl md:text-3xl font-medium text-violet-400 mb-8">
-                    <!-- Tagline will be injected by JS -->
-                </h2>
-                <div class="flex justify-center items-center gap-12 mb-8 py=8">
-                    <a href="https://github.com/arushi-866" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-violet-400 transition-colors text-3xl">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/arushi866" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-violet-400 transition-colors text-3xl">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                </div>
-                <!-- <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                    <a href="#projects" class="w-full sm:w-auto bg-violet-600 hover:bg-violet-700 text-white font-bold py-3 px-8 rounded-lg transition-transform duration-300 hover:scale-105 text-lg">
-                        View Projects
-                    </a>
-                    <a href="#contact" class="w-full sm:w-auto bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-lg transition-transform duration-300 hover:scale-105 text-lg">
-                        Contact Me
-                    </a>
-                </div> -->
-                 <!-- <div class="flex justify-center space-x-6 space-y-8 text-3xl">
-                    <a href="https://github.com/arushi-866" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-violet-400 transition-colors"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/arushi866" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-violet-400 transition-colors"><i class="fab fa-linkedin"></i></a>
-                </div> -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-full max-w-6xl mx-auto z-10">
+        <!-- Left: Existing content -->
+        <div class="flex flex-col justify-center items-start text-left">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4">
+                Arushi
+            </h1>
+            <h2 id="tagline" class="text-2xl md:text-3xl font-medium text-violet-400 mb-8">
+                <!-- Tagline will be injected by JS -->
+            </h2>
+            <div class="flex justify-start items-center gap-12 mb-8 py=8">
+                <a href="https://github.com/arushi-866" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-violet-400 transition-colors text-3xl">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/arushi866" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-violet-400 transition-colors text-3xl">
+                    <i class="fab fa-linkedin"></i>
+                </a>
             </div>
-        </section>
+        </div>
+        <!-- Right: Animation canvas -->
+        <div class="flex justify-center items-center">
+            <div style="width:100%;height:400px;max-width:500px;position:relative;">
+                <canvas id="constellation" class="constellation-canvas" style="width:100%;height:100%;display:block;border-radius:1rem;box-shadow:0 0 40px #8B5CF6;"></canvas>
+            </div>
+        </div>
+    </div>
+</section>
 
         <!-- About Me Section -->
         <section id="about" class="py-20 md:py-32">
@@ -676,15 +673,19 @@
             // --- ANIMATIONS & INTERACTIONS ---
 
             // Tagline animation
-            const taglineText = "AI Innovator | Full-Stack Developer | Data Enthusiast";
+            const taglineText = "AI Innovator | Full-Stack Developer |\nData Enthusiast";
             const taglineEl = document.getElementById('tagline');
             taglineEl.innerHTML = ''; // Clear existing
             taglineText.split('').forEach((char, index) => {
-                const span = document.createElement('span');
-                span.className = 'tagline-char';
-                span.textContent = char === ' ' ? '\u00A0' : char;
-                span.style.animationDelay = `${index * 0.03}s`;
-                taglineEl.appendChild(span);
+                if (char === '\n') {
+                    taglineEl.appendChild(document.createElement('br'));
+                } else {
+                    const span = document.createElement('span');
+                    span.className = 'tagline-char';
+                    span.textContent = char === ' ' ? '\u00A0' : char;
+                    span.style.animationDelay = `${index * 0.03}s`;
+                    taglineEl.appendChild(span);
+                }
             });
 
             // Scroll reveal animation
@@ -858,5 +859,155 @@ function toggleCert(id) {
         box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
     }
 </style>
+<!-- --- Constellation Animation Script --- -->
+<script>
+    const canvas = document.getElementById('constellation');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        function resizeCanvas() {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        const skills = {
+            'AI / ML': { x: 0.5, y: 0.2, core: true },
+            'Full-Stack Dev': { x: 0.25, y: 0.8, core: true },
+            'Data Science': { x: 0.75, y: 0.8, core: true },
+            'Python': { x: 0.45, y: 0.15, core: false },
+            'TensorFlow': { x: 0.55, y: 0.15, core: false },
+            'PyTorch': { x: 0.5, y: 0.1, core: false },
+            'React': { x: 0.2, y: 0.7, core: false },
+            'Node.js': { x: 0.35, y: 0.7, core: false }, 
+            'JavaScript': { x: 0.2, y: 0.9, core: false },
+            'SQL': { x: 0.8, y: 0.7, core: false },
+            'Pandas': { x: 0.65, y: 0.7, core: false }, 
+            'NumPy': { x: 0.8, y: 0.9, core: false },
+        };
+
+        let bgStars = [];
+        for (let i = 0; i < 700; i++) {
+            bgStars.push({
+                x: Math.random(),
+                y: Math.random(),
+                radius: Math.random() * 1.2, 
+                baseAlpha: Math.random() * 0.5 + 0.1,
+                alpha: Math.random() * 0.5 + 0.1,
+                dAlpha: (Math.random() * 0.008 + 0.003) * (Math.random() > 0.5 ? 1 : -1),
+                depth: Math.random() * 0.6 + 0.2, 
+            });
+        }
+
+        let lineProgress = 0;
+        const lineAnimationSpeed = 0.02;
+
+        function drawStar(star) {
+            const x = star.x * canvas.width;
+            const y = star.y * canvas.height;
+            const pulse = Math.sin(Date.now() * 0.001 + x) * 0.4 + 0.6;
+            const radius = star.core ? 5 : 2.5;
+            const glowRadius = radius * (star.core ? 5 : 4);
+
+            ctx.beginPath();
+            const glow = ctx.createRadialGradient(x, y, 0, x, y, glowRadius);
+            glow.addColorStop(0, `rgba(167, 139, 250, ${pulse * 0.3})`);
+            glow.addColorStop(0.7, `rgba(167, 139, 250, ${pulse * 0.1})`);
+            glow.addColorStop(1, 'rgba(167, 139, 250, 0)');
+            ctx.fillStyle = glow;
+            ctx.arc(x, y, glowRadius, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 255, 255, ${pulse * 0.9})`;
+            ctx.fill();
+        }
+
+        function drawAnimatedA() {
+            lineProgress = (lineProgress + lineAnimationSpeed) % 4.5; 
+            let currentProgress = lineProgress;
+            let alpha = 0.7;
+            if (currentProgress > 3) {
+                alpha = Math.max(0, 0.7 * (1 - (currentProgress - 3) / 1.5));
+            }
+            ctx.strokeStyle = `rgba(192, 132, 252, ${alpha})`;
+            ctx.lineWidth = 2;
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = `rgba(192, 132, 252, ${alpha * 0.7})`;
+
+            // Get points for the 'A'
+            const left = skills['Full-Stack Dev'];
+            const top = skills['AI / ML'];
+            const right = skills['Data Science'];
+
+            // Calculate the center for the crossbar
+            // Find the midpoint between left and right legs at 60% height from top to bottom
+            const crossbarY = top.y + 0.6 * (left.y - top.y);
+            const crossbarLeftX = left.x + 0.07; // Slightly inward from left leg
+            const crossbarRightX = right.x - 0.07; // Slightly inward from right leg
+
+            // Draw left leg
+            if (currentProgress > 0) {
+                const p = Math.min(currentProgress - 0, 1);
+                ctx.beginPath();
+                ctx.moveTo(left.x * canvas.width, left.y * canvas.height);
+                ctx.lineTo(
+                    left.x * canvas.width + (top.x * canvas.width - left.x * canvas.width) * p,
+                    left.y * canvas.height + (top.y * canvas.height - left.y * canvas.height) * p
+                );
+                ctx.stroke();
+            }
+            // Draw right leg
+            if (currentProgress > 1) {
+                const p = Math.min(currentProgress - 1, 1);
+                ctx.beginPath();
+                ctx.moveTo(right.x * canvas.width, right.y * canvas.height);
+                ctx.lineTo(
+                    right.x * canvas.width + (top.x * canvas.width - right.x * canvas.width) * p,
+                    right.y * canvas.height + (top.y * canvas.height - right.y * canvas.height) * p
+                );
+                ctx.stroke();
+            }
+            // Draw crossbar (center line)
+            if (currentProgress > 2) {
+                const p = Math.min(currentProgress - 2, 1);
+                ctx.beginPath();
+                ctx.moveTo(crossbarLeftX * canvas.width, crossbarY * canvas.height);
+                ctx.lineTo(
+                    crossbarLeftX * canvas.width + (crossbarRightX * canvas.width - crossbarLeftX * canvas.width) * p,
+                    crossbarY * canvas.height
+                );
+                ctx.stroke();
+            }
+            ctx.shadowBlur = 0; 
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            bgStars.forEach(star => {
+                star.x -= 0.0001 * star.depth;
+                if (star.x < 0) {
+                    star.x = 1; 
+                    star.y = Math.random(); 
+                }
+                star.alpha += star.dAlpha;
+                if (star.alpha < star.baseAlpha * 0.1 || star.alpha > star.baseAlpha * 1.5) {
+                    star.dAlpha *= -1;
+                }
+                ctx.beginPath();
+                ctx.arc(star.x * canvas.width, star.y * canvas.height, star.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(224, 224, 224, ${star.alpha})`;
+                ctx.fill();
+            });
+            for (const name in skills) {
+                drawStar(skills[name]);
+            }
+            drawAnimatedA();
+            requestAnimationFrame(animate);
+        }
+        animate();
+    }
+</script>
 </body>
 </html>
