@@ -110,6 +110,40 @@
             background-color: rgba(139, 92, 246, 0.2);
             box-shadow: 0 0 25px rgba(139, 92, 246, 0.7);
         }
+        /* Add this to your <style> section for animated gradient effect */
+        @keyframes gradient-x {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+        .animate-gradient-x {
+            background-size: 200% 200%;
+            animation: gradient-x 2s linear infinite alternate;
+        }
+        /* Add this to your <style> section for running text animation */
+.marquee {
+    overflow: hidden;
+    position: relative;
+    height: 2rem;
+    line-height: 2rem;
+    color: #8B5CF6;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+.marquee span {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: marquee 18s linear infinite;
+}
+@keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
     </style>
 </head>
 <body class="overflow-x-hidden relative">
@@ -119,7 +153,11 @@
     <!-- Header -->
     <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-effect">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#home" class="text-2xl font-bold text-white">Arushi</a>
+            <a href="#home" 
+               class="text-2xl font-bold text-white animate-gradient-x bg-gradient-to-r from-violet-400 via-pink-400 to-blue-400 bg-clip-text text-transparent transition-transform duration-300 hover:scale-110"
+               style="letter-spacing: 2px;">
+                Arushi
+            </a>
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#about" class="nav-link text-slate-300 hover:text-white flex items-center gap-2 group">
                     <span class="inline-block animate-bounce"><i class="fas fa-user"></i></span>
@@ -141,7 +179,6 @@
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
-            <!-- Add this inside your <header> nav, after the Contact Me button -->
             <button id="theme-toggle" class="ml-4 bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-transform duration-300 hover:scale-105">
                 <i id="theme-icon" class="fas fa-moon"></i>
             </button>
@@ -255,11 +292,179 @@
                         <div class="skill-item bg-gray-800 p-4 rounded-lg flex items-center gap-3"><i class="fas fa-code-branch text-violet-400"></i> VS Code</div>
                         <div class="skill-item bg-gray-800 p-4 rounded-lg flex items-center gap-3"><i class="fab fa-ubuntu text-violet-400"></i> Ubuntu</div>
                         <div class="skill-item bg-gray-800 p-4 rounded-lg flex items-center gap-3"><i class="fas fa-book text-violet-400"></i> Jupyter</div>
+                        <div class="skill-item bg-gray-800 p-4 rounded-lg flex items-center gap-3"><i class="fab fa-google-drive text-violet-400"></i> Google Colab</div>
                         <div class="skill-item bg-gray-800 p-4 rounded-lg flex items-center gap-3"><i class="fas fa-file-excel text-violet-400"></i> Excel</div>
                         <div class="skill-item bg-gray-800 p-4 rounded-lg flex items-center gap-3"><i class="fas fa-sitemap text-violet-400"></i> DSA</div>
+                        <div class="skill-item bg-gray-800 p-4 rounded-lg flex items-center gap-3"><i class="fas fa-network-wired text-violet-400"></i> CN</div>
                         <div class="skill-item bg-gray-800 p-4 rounded-lg flex items-center gap-3"><i class="fas fa-object-group text-violet-400"></i> OOPS</div>
                         <div class="skill-item bg-gray-800 p-4 rounded-lg flex items-center gap-3"><i class="fas fa-cogs text-violet-400"></i> OS</div>
                         <div class="skill-item bg-gray-800 p-4 rounded-lg flex items-center gap-3"><i class="fas fa-database text-violet-400"></i> DBMS</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 md:py-32">
+            <h2 class="text-4xl font-bold text-center text-white mb-12 scroll-reveal">Featured Projects</h2>
+            <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Projects will be injected here -->
+            </div>
+        </section>
+
+        <!-- Certifications & Achievements Section -->
+        <section id="achievements" class="py-20 md:py-32">
+            <h2 class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent scroll-reveal">Certifications</h2>
+            <div class="max-w-3xl mx-auto space-y-6">
+
+                <!-- Achievements Section (added before Job Simulations) -->
+                <div class="bg-gray-800/70 rounded-xl p-4">
+                    <h3 class="text-2xl font-bold text-yellow-400 mb-4 flex items-center gap-2">
+                        <i class="fas fa-trophy"></i> Achievements
+                    </h3>
+                    <div class="flex flex-col gap-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-award text-yellow-400"></i>
+                            <span class="font-medium text-white">1st Runner-Up - Hackathon 3.0, PCTE Ludhiana</span>
+                            <a href="https://drive.google.com/file/d/18dHFek2KU2f5lzdSolNd_1Gs78RurpKo/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
+                        </div>
+                        <!-- Add more achievements here if needed -->
+                    </div>
+                </div>
+
+                <!-- Forage Certificates (dropdown removed, always open) -->
+                <div class="bg-gray-800/70 rounded-xl p-4">
+                    <h3 class="text-2xl font-bold text-green-400 mb-4 flex items-center gap-2">
+                        <span class="inline-block w-4 h-4 bg-green-400 rounded mr-2"></span>Job Simulations
+                    </h3>
+                    <div id="forage-cert" class="mt-4 space-y-3">
+                        <div class="flex flex-col gap-3">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-briefcase text-green-400"></i>
+                                <span class="font-medium text-white">Walmart-Advanced Software Engineering Job Simulation</span>
+                                <a href="https://drive.google.com/file/d/1oqXC0ij70GeQpqCtVC82NZYoiZQ2_od-/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-chart-bar text-green-400"></i>
+                                <span class="font-medium text-white">JPMorgon Chase & Co.-Software Engineering Job Simulation</span>
+                                <a href="https://drive.google.com/file/d/1H0pHrVKHkIY66ixeRrEeMYS-RHgc5-Ip/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-chart-line text-green-400"></i>
+                                <span class="font-medium text-white">JPMorgon Chase & Co.-Quantitative Research Job Simulation</span>
+                                <a href="https://drive.google.com/file/d/1CCqoyUKO15BhC-WyPIAxjvHBap57heXX/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-laptop-code text-green-400"></i>
+                                <span class="font-medium text-white">Deloitte-Data Analytics Job Simulation</span>
+                                <a href="https://drive.google.com/file/d/190JTWkfcnUy6mWYoNtOZD2Pm7e-0jWI_/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-shopping-cart text-green-400"></i>
+                                <span class="font-medium text-white">Accenture-Software Engineering Job Simulation</span>
+                                <a href="https://drive.google.com/file/d/1Qav_QpU3LV90LF_3sq5O8usPxh9Bz0lK/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ML/Data Science -->
+                <div class="bg-gray-800/70 rounded-xl p-4">
+                    <h3 class="text-2xl font-bold text-pink-400 mb-4 flex items-center gap-2">
+                        <i class="fas fa-brain"></i> Machine Learning / Data Science
+                    </h3>
+                    <div class="mt-4 space-y-3">
+                        <div class="flex flex-col gap-3">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-database text-pink-400"></i>
+                                <span class="font-medium text-white">Coursera- Supervised Machine Learning</span>
+                                <a href="https://drive.google.com/file/d/1OKEdgyO-KrCpcskEi6jbQ28X3SvFky7H/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-robot text-pink-400"></i>
+                                <span class="font-medium text-white">Coursera- Advanced Learning Algorithm</span>
+                                <a href="https://drive.google.com/file/d/12MMeLENzTaPdyz4dInfUqI389QsrsBpl/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-brain text-pink-400"></i>
+                                <span class="font-medium text-white">Coursera Project-Linear Regression</span>
+                                <a href="https://drive.google.com/file/d/1OZ4Z2-O4x6mfvM5jVTXb5DWd89x5NjPQ/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-chart-line text-pink-400"></i>
+                                <span class="font-medium text-white">Coursera Project-Scikit-Learn for ML</span>
+                                <a href="https://drive.google.com/file/d/19KMFKUpXuHUirvMWDMa9FBVdMbv9Kui5/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-chart-bar text-pink-400"></i>
+                                <span class="font-medium text-white">Microsoft-Data Analytics</span>
+                                <a href="https://drive.google.com/open?id=1DVR36NC5XQofvg7LE1JfxsQK5jWX7tC_&usp=drive_copy" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-brain text-pink-400"></i>
+                                <span class="font-medium text-white">Microsoft- PowerBI</span>
+                                <a href="https://drive.google.com/open?id=1-iq-99oflSrVKodaW4NfAc5I72fGYI5c&usp=drive_copy" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-chart-line text-pink-400"></i>
+                                <span class="font-medium text-white">Udemy- Data Analyst</span>
+                                <a href="https://drive.google.com/open?id=1HqLnLPdWHg-bJDuWv1n6LgFhxas4Bht9&usp=drive_copy" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-chart-bar text-pink-400"></i>
+                                <span class="font-medium text-white">IBM-SQL for Data Science</span>
+                                <a href="https://drive.google.com/file/d/1_Nd-1nEtxY5WMncwaW2Rwqf1r1pjbes-/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-chart-line text-pink-400"></i>
+                                <span class="font-medium text-white">Coursera Project-EDA</span>
+                                <a href="https://drive.google.com/file/d/1CgTmpqqDsY1UOuQz3Zbz_eIADFaJTLAd/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-brain text-pink-400"></i>
+                                <span class="font-medium text-white">Coursera Project-Data Visualization</span>
+                                <a href="https://drive.google.com/file/d/1EawDQCXvECLaQe5UY07zpg35xAfyJSEr/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-brain text-pink-400"></i>
+                                <span class="font-medium text-white">OneroadMap- Data Analyst</span>
+                                <a href="https://drive.google.com/file/d/14Jzx0ndYWPPEvUhR5e-Pgc_9t0u0wwCE/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Web Development -->
+                <div class="bg-gray-800/70 rounded-xl p-4">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-4 flex items-center gap-2">
+                        <i class="fas fa-globe"></i> Web Development
+                    </h3>
+                    <div class="mt-4 space-y-3">
+                        <div class="flex flex-col gap-3">
+                            <div class="flex items-center gap-3">
+                                <i class="fab fa-react text-blue-400"></i>
+                                <span class="font-medium text-white">Infosys Springboard- Angular</span>
+                                <a href="https://drive.google.com/file/d/1hEcMNNurVbGTGX19ERf81mYdlxqUyhh-/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fab fa-js-square text-blue-400"></i>
+                                <span class="font-medium text-white">Frontend Developer</span>
+                                <a href="https://drive.google.com/file/d/1v1vLExF00_-sZeKFgMqzCS8u5mLXYwVl/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tools -->
+                <div class="bg-gray-800/70 rounded-xl p-4">
+                    <h3 class="text-2xl font-bold text-violet-400 mb-4 flex items-center gap-2">
+                        <i class="fas fa-chart-bar"></i> Tools
+                    </h3>
+                    <div class="mt-4 space-y-3">
+                        <div class="flex flex-col gap-3">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-database text-pink-400"></i>
+                                <span class="font-medium text-white">Coursera Project-Excel</span>
+                                <a href="https://drive.google.com/file/d/1kEDEdx6IgagwyD0p2VONSDGohH4B7Z6h/view?usp=drive_link" target="_blank" class="text-blue-400 text-xs ml-2 font-semibold underline">View certificate</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -559,21 +764,28 @@
                 {
                     title: 'BrainVerse',
                     icon: 'fas fa-brain',
-                    description: 'AI-powered learning assistant to make studying smarter by generating mind maps, summaries, and quizzes.',
+                    description: 'AI-powered learning assistant to make studying smarter by generating mind maps, summaries, and quizzes.A chatbot "StudyBuddy" for assistance integrateg with gemini API',
                     github: 'https://github.com/arushi-866/BrainVerse',
-                    stack: ['React.js', 'Node.js', 'Gemini API', 'ytdl-core']
+                    stack: ['React.js', 'Node.js', 'Gemini Flash API', 'ytdl-core']
                 },
+                                {
+                    title: 'LunarLander DQN Agent',
+                    icon: 'fas fa-rocket',
+                    description: `Deep Q-Network (DQN) agent for solving the LunarLander-v3 environment (Gymnasium). Uses a neural network, experience replay, target Q-network, and epsilon-greedy policy. Includes reward visualization and video rendering of agent performance.`,
+                    github: 'https://github.com/arushi-866/LunarLandar',
+                    stack: ['Python', 'TensorFlow', 'Gymnasium', 'NumPy', 'Matplotlib', 'Pandas',]
+                                },
                 {
                     title: 'recipAI',
                     icon: 'fas fa-utensils',
-                    description: 'AI-powered recipe recommender that suggests dishes based on available ingredients, with a pantry manager.',
+                    description: 'AI-powered recipe recommender that suggests dishes based on available ingredients, with a pantry manager that tracks items and a nutrition tracker . This project gave the team a title of 1st runner up.',
                     github: 'https://github.com/arushi-866/recipAI',
                     stack: ['JavaScript', 'HTML', 'CSS', 'Gemini API']
                 },
                 {
                     title: 'Equalify',
                     icon: 'fas fa-equals',
-                    description: 'A smart expense-splitting web app that simplifies shared expense management for groups and travel buddies.',
+                    description: 'A smart expense-splitting web app that simplifies shared expense management for groups and travel buddies. Has Expense Splitting, Budget tracker and Budget Analyser',
                     github: 'https://github.com/arushi-866/Equalify',
                     stack: ['React.js', 'Node.js', 'MongoDB']
                 },
@@ -584,6 +796,15 @@
                     github: 'https://github.com/arushi-866/random-GIF-generator',
                     stack: ['JavaScript', 'HTML', 'CSS', 'Giphy API']
                 },
+                {
+                    title: 'House Sales Analysis Dashboard',
+                    icon: 'fas fa-home',
+                    description: `Analyzed house sales data to uncover pricing trends, distributions, and geographic patterns. Built an interactive Tableau dashboard with filters, heatmaps, and distribution charts for market insights.<br>
+                    <a href="https://public.tableau.com/app/profile/arushi.866/viz/Dashboard_17532826549010/HouseSalesDashboard?publish=yes" target="_blank" class="text-blue-400 underline font-semibold">View Tableau Dashboard</a>`,
+                    github: 'https://github.com/arushi-866/HouseDataAnalysis',
+                    stack: ['Tableau', 'Excel', 'CSV']
+                },
+
                 {
                     title: 'healthSync',
                     icon: 'fas fa-heart-pulse',
@@ -606,13 +827,13 @@
                 stack: ['Power BI','DAX']
             },
 
-            {
-    title: 'Retail Data EDA',
-    icon: 'fas fa-store',  // Icon for retail/business analysis
-    description: 'Exploratory Data Analysis on an online retail dataset to uncover sales trends, customer behavior, and actionable business insights.',
-    github:'https://github.com/arushi-866/retail-data-EDA',
-    stack: ['Python', 'Pandas', 'Matplotlib', 'Seaborn', 'Jupyter Notebook']
-},
+                        {
+                title: 'Retail Data EDA',
+                icon: 'fas fa-store',  // Icon for retail/business analysis
+                description: 'Exploratory Data Analysis on an online retail dataset to uncover sales trends, customer behavior, and actionable business insights.',
+                github:'https://github.com/arushi-866/retail-data-EDA',
+                stack: ['Python', 'Pandas', 'Matplotlib', 'Seaborn', 'Jupyter Notebook']
+            },
 
 
                  {
@@ -621,6 +842,21 @@
                     description: 'AI assistant using local LLMs (Gemma, LLaMA) via Ollama for a smart AI search experience for Walmart Sparkathon 2025.',
                     github: 'https://github.com/arushi-866/AskWally',
                     stack: ['TypeScript', 'Node.js', 'Ollama', 'Langchain']
+                },
+                {
+                    title: 'Credit Risk Prediction',
+                    icon: 'fas fa-university',
+                    description: `Predicts credit default risk using Random Forest, SVM, and Logistic Regression on customer data (age, income, debt ratio). Includes data cleaning, EDA, feature scaling, model training, cross-validation, and confusion matrix evaluation. Visualizes results and compares model performance for financial risk assessment.`,
+                    github: 'https://github.com/arushi-866/CreditRiskAnalysis',
+                    stack: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Scikit-learn']
+                },
+                {
+                    title: 'House Sales Analysis Dashboard',
+                    icon: 'fas fa-home',
+                    description: `Analyzed house sales data to uncover pricing trends, distributions, and geographic patterns. Built an interactive Tableau dashboard with filters, heatmaps, and distribution charts for market insights.<br>
+    <a href="https://public.tableau.com/app/profile/arushi.866/viz/Dashboard_17532826549010/HouseSalesDashboard?publish=yes" target="_blank" class="text-blue-400 underline font-semibold">View Tableau Dashboard</a>`,
+                    github: 'https://github.com/arushi-866/HouseDataAnalysis',
+                    stack: ['Tableau', 'Excel', 'CSV']
                 },
             ];
 
@@ -893,14 +1129,6 @@ function toggleCert(id) {
             canvas.width = canvas.offsetWidth;
             canvas.height = canvas.offsetHeight;
         }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        const skills = {
-            'AI / ML': { x: 0.5, y: 0.2, core: true },
-            'Full-Stack Dev': { x: 0.25, y: 0.8, core: true },
-            'Data Science': { x: 0.75, y: 0.8, core: true },
-            'Python': { x: 0.45, y: 0.15, core: false },
             'TensorFlow': { x: 0.55, y: 0.15, core: false },
             'PyTorch': { x: 0.5, y: 0.1, core: false },
             'React': { x: 0.2, y: 0.7, core: false },
@@ -1031,6 +1259,7 @@ function toggleCert(id) {
             drawAnimatedA();
             requestAnimationFrame(animate);
         }
+
         animate();
     }
 </script>
