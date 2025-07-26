@@ -953,34 +953,36 @@ function toggleCert(id) {
             canvas.width = canvas.offsetWidth;
             canvas.height = canvas.offsetHeight;
         }
-        // Define the skills object properly
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
         const skills = {
-            'Full-Stack Dev': { x: 0.3, y: 0.8, core: true },
             'AI / ML': { x: 0.5, y: 0.2, core: true },
-            'Data Science': { x: 0.7, y: 0.8, core: true },
+            'Full-Stack Dev': { x: 0.25, y: 0.8, core: true },
+            'Data Science': { x: 0.75, y: 0.8, core: true },
+            'Python': { x: 0.45, y: 0.15, core: false },
             'TensorFlow': { x: 0.55, y: 0.15, core: false },
             'PyTorch': { x: 0.5, y: 0.1, core: false },
             'React': { x: 0.2, y: 0.7, core: false },
-            'Node.js': { x: 0.35, y: 0.7, core: false },
+            'Node.js': { x: 0.35, y: 0.7, core: false }, 
             'JavaScript': { x: 0.2, y: 0.9, core: false },
             'SQL': { x: 0.8, y: 0.7, core: false },
-            'Pandas': { x: 0.65, y: 0.7, core: false },
+            'Pandas': { x: 0.65, y: 0.7, core: false }, 
             'NumPy': { x: 0.8, y: 0.9, core: false },
         };
 
-        // let bgStars = [];
-        let bgStars = []; // No background stars
-        // for (let i = 0; i < 700; i++) {
-        //     bgStars.push({
-        //         x: Math.random(),
-        //         y: Math.random(),
-        //         radius: Math.random() * 1.2, 
-        //         baseAlpha: Math.random() * 0.5 + 0.1,
-        //         alpha: Math.random() * 0.5 + 0.1,
-        //         dAlpha: (Math.random() * 0.008 + 0.003) * (Math.random() > 0.5 ? 1 : -1),
-        //         depth: Math.random() * 0.6 + 0.2, 
-        //     });
-        // }
+        let bgStars = [];
+        for (let i = 0; i < 700; i++) {
+            bgStars.push({
+                x: Math.random(),
+                y: Math.random(),
+                radius: Math.random() * 1.2, 
+                baseAlpha: Math.random() * 0.5 + 0.1,
+                alpha: Math.random() * 0.5 + 0.1,
+                dAlpha: (Math.random() * 0.008 + 0.003) * (Math.random() > 0.5 ? 1 : -1),
+                depth: Math.random() * 0.6 + 0.2, 
+            });
+        }
 
         let lineProgress = 0;
         const lineAnimationSpeed = 0.02;
@@ -989,8 +991,8 @@ function toggleCert(id) {
             const x = star.x * canvas.width;
             const y = star.y * canvas.height;
             const pulse = Math.sin(Date.now() * 0.001 + x) * 0.4 + 0.6;
-            const radius = star.core ? 3 : 1.5;
-            const glowRadius = radius * (star.core ? 4 : 3);
+            const radius = star.core ? 5 : 2.5;
+            const glowRadius = radius * (star.core ? 5 : 4);
 
             ctx.beginPath();
             const glow = ctx.createRadialGradient(x, y, 0, x, y, glowRadius);
@@ -1015,7 +1017,7 @@ function toggleCert(id) {
                 alpha = Math.max(0, 0.7 * (1 - (currentProgress - 3) / 1.5));
             }
             ctx.strokeStyle = `rgba(192, 132, 252, ${alpha})`;
-            ctx.lineWidth = 1;
+            ctx.lineWidth = 2;
             ctx.shadowBlur = 10;
             ctx.shadowColor = `rgba(192, 132, 252, ${alpha * 0.7})`;
 
@@ -1089,7 +1091,6 @@ function toggleCert(id) {
             drawAnimatedA();
             requestAnimationFrame(animate);
         }
-
         animate();
     }
 </script>
